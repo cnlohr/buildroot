@@ -17,6 +17,7 @@ config BR2_PACKAGE_UCLIBC_ARCH_SUPPORTS
 	default y if BR2_powerpc
 	# see libc/sysdeps/linux/riscv64/sys/asm.h
 	default y if BR2_RISCV_64 && (BR2_RISCV_ABI_LP64 || BR2_RISCV_ABI_LP64D)
+	default y if BR2_RISCV_32
 	default y if BR2_sh4
 	default y if BR2_sh4eb
 	default y if BR2_sparc
@@ -138,6 +139,7 @@ config BR2_UCLIBC_TARGET_ARCH
 	default "i386"	   if BR2_i386
 	default "x86_64"   if BR2_x86_64
 	default "riscv64"  if BR2_RISCV_64
+	default "riscv32"  if BR2_RISCV_32
 
 config BR2_UCLIBC_MIPS_ABI
 	string

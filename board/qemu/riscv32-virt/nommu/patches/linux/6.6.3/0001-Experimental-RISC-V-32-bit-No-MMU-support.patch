@@ -1,0 +1,24 @@
+diff --git a/arch/riscv/include/uapi/asm/unistd.h b/arch/riscv/include/uapi/asm/unistd.h
+index 73d7cdd2e..53f5410c1 100644
+--- a/arch/riscv/include/uapi/asm/unistd.h
++++ b/arch/riscv/include/uapi/asm/unistd.h
+@@ -15,9 +15,14 @@
+  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+  */
+
+-#if defined(__LP64__) && !defined(__SYSCALL_COMPAT)
++#ifndef __SYSCALL_COMPAT
+ #define __ARCH_WANT_NEW_STAT
+ #define __ARCH_WANT_SET_GET_RLIMIT
++#endif
++
++#ifndef __LP64__
++#define __ARCH_WANT_STAT64
++#define __ARCH_WANT_TIME32_SYSCALLS
+ #endif /* __LP64__ */
+
+ #define __ARCH_WANT_SYS_CLONE3
+-- 
+2.38.1
+
+

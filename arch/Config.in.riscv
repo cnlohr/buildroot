@@ -80,6 +80,7 @@ choice
 config BR2_RISCV_ABI_ILP32
 	bool "ilp32"
 	depends on !BR2_ARCH_IS_64
+	select BR2_SOFT_FLOAT
 
 config BR2_RISCV_ABI_ILP32F
 	bool "ilp32f"
@@ -92,6 +93,7 @@ config BR2_RISCV_ABI_ILP32D
 config BR2_RISCV_ABI_LP64
 	bool "lp64"
 	depends on BR2_ARCH_IS_64
+	select BR2_SOFT_FLOAT
 
 config BR2_RISCV_ABI_LP64F
 	bool "lp64f"
