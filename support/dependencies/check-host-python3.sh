@@ -18,7 +18,7 @@ for candidate in "${@}" ; do
 	if [ ! -x "$python3" ]; then
 		continue
 	fi
-	version=`$python3 -V 2>&1 | awk '{ split($2, v, "."); print v[1] v[2] }'`
+	version=$($python3 -c "import sys; print(f'{sys.version_info.major}{sys.version_info.minor}')")
 
 	if [ $version -lt $version_min ]; then
 		# no suitable python3 found
